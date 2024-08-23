@@ -19,6 +19,6 @@ modprobe zfs
 #install wget
 yum install -y wget
 
-echo #########################
-echo # PROVISON COMPLETE !!! #
-echo #########################
+echo '##########################'
+echo '# PROVISION COMPLETE !!! #'
+echo '##########################'

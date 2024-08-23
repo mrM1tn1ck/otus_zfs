@@ -28,10 +28,10 @@ lsblk
 ```
 2. Создаём 4 пула по два диска в каждом в режиме RAID 1:
 ```
-[root@zfs ~]# zpool create otus1 mirror sdb sdc
-[root@zfs ~]# zpool create otus2 mirror sdd sde
-[root@zfs ~]# zpool create otus3 mirror sdf sdg
-[root@zfs ~]# zpool create otus4 mirror sdh sdi
+zpool create otus1 mirror sdb sdc
+zpool create otus2 mirror sdd sde
+zpool create otus3 mirror sdf sdg
+zpool create otus4 mirror sdh sdi
 ```
 Команды для просмотра информацию о пулах:
    
@@ -42,12 +42,12 @@ lsblk
 >[!NOTE]
 > В некоторых случая нужно отключить монтирование корневого dataset, чтобы он не мешал при просмотре и чтобы не записать в него что-то случайно:
 >   
-> `[root@zfs ~]# zfs set mountpoint=none poolname`,  или с опцией `"-m none"` при создании пула командой `zpool create` 
+> `zfs set mountpoint=none poolname`,  или с опцией `"-m none"` при создании пула командой `zpool create` 
 > 
 > Соответственно, если мы дальше создадим dataset на таком скрытом пуле, то нужно обязательно указать для него точку монтирования. Например:
 > ```
-> [root@zfs ~]# zfs set mountpoint=none otus1
-> [root@zfs ~]# zfs set mountpoint=/mnt otus1/dataset1
+> zfs set mountpoint=none otus1
+> zfs set mountpoint=/mnt otus1/dataset1
 > ```
 Cоздаем дополнительные dataset's (разделы) в каждом пуле:
 ```
